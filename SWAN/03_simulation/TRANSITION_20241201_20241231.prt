@@ -1,0 +1,299 @@
+1
+
+                    Execution started at 20250403.165333         
+
+
+
+                    ---------------------------------------
+                                     SWAN
+                    SIMULATION OF WAVES IN NEAR SHORE AREAS
+                             VERSION NUMBER 41.51               
+                    ---------------------------------------
+
+
+    
+ PROJECT '' ''
+    
+ SET 0.00 90.00 0.05 200 1 9.81 1025.00 30
+    
+ MODE NONSTATIONARY TWODIMENSIONAL
+    
+ COORDINATES SPHERICAL
+    
+ 
+    
+ 
+    
+ $ COMPUTATIONAL GRID
+    
+ $ -------------------------------------------------------------------------------
+    
+ CGRID REGULAR -78.677052 -9.819253 0.00 0.442350 0.668440 44 67 &
+ CIRCLE 36 0.040 1.000 34
+ Resolution in sigma-space: df/f =  0.0993
+    
+ 
+    
+ $ -------------------------------------------------------------------------------
+    
+ 
+    
+ $ BOTTOM & FRICTION INPUT
+    
+ $ -------------------------------------------------------------------------------
+    
+ INPGRID BOTTOM REGULAR -78.677052 -9.819253 0.00 44 67 0.010053 0.009977 &
+ READINP BOTTOM +1 '../01_geometry/TRANSITION_20241201_20241231_BOTTOM.txt' 3 3 FORMAT '((45f8.2))'
+ **  Heading lines file ../01_geometry/TRANSITION_20241201_20241231_BOTTOM.txt **
+ -> INPGRID BOTTOM REGULAR -78.677052 -9.819253 0.00 44 67 0.010053 0.009977 &      
+ -> READINP BOTTOM +1 '../01_geometry/TRANSITION_20241201_20241231_BOTTOM.txt' 3 3 F
+ ->                                                                                 
+    
+ 
+    
+ $ -------------------------------------------------------------------------------
+    
+ 
+    
+ $ WIND INPUT
+    
+ $ -------------------------------------------------------------------------------
+    
+ INPGRID WIND REGULAR -78.750000 -10.000000 0.00 3 4 0.250000 0.250000 &
+ NONSTATIONARY 20241201.000000 3600.00 SEC 20241231.000000
+    
+ READINP WIND +1 '../02_bc_dbase/TRANSITION_20241201_20241231_WIND.txt' 3 4 1 0 FORMAT '((4f7.2))'
+ **  Heading lines file ../02_bc_dbase/TRANSITION_20241201_20241231_WIND.txt **
+ -> INPGRID WIND REGULAR -78.750000 -10.000000 0.00 3 4 0.250000 0.250000 &         
+ -> NONSTATIONARY 20241201.000000 3600.00 SEC 20241231.000000                       
+ -> READINP WIND +1 '../02_bc_dbase/TRANSITION_20241201_20241231_WIND.txt' 3 4 1 0 F
+ ->                                                                                 
+ **  Heading lines  **
+ -> 20241201.000000                                                                 
+    
+ 
+    
+ $ -------------------------------------------------------------------------------
+    
+ 
+    
+ $ HYDRODYNAMIC INPUT
+    
+ $ -------------------------------------------------------------------------------
+    
+ $ N/A NO SURFACE INPUT
+    
+ 
+    
+ $ N/A NO CURRENT INPUT
+    
+ $ -------------------------------------------------------------------------------
+    
+ 
+    
+ $ BOUNDARY SPECTRA INPUT
+    
+ $ -------------------------------------------------------------------------------
+    
+ BOUNDNEST1 NEST '../04_results/TRANSITION_20241201_20241231.nest' CLOSED
+    
+ $ -------------------------------------------------------------------------------
+    
+ 
+    
+ $ PHYSICS
+    
+ $ -------------------------------------------------------------------------------
+    
+ GEN3
+    
+ FRICTION JONSWAP
+    
+ $ -------------------------------------------------------------------------------
+    
+ 
+    
+ $ NUMERICS
+    
+ $ -------------------------------------------------------------------------------
+    
+ PROP BSBT
+    
+ NUMERIC ACCUR 0.005 0.010 0.005 99.50 NONSTATIONARY 5 0.01
+    
+ $ -------------------------------------------------------------------------------
+    
+ 
+    
+ $ OUTPUT
+    
+ $ -------------------------------------------------------------------------------
+    
+ NGRID 'NEST00' -78.456705 -9.501024 0.00 0.090803 0.118043
+    
+ NESTOUT 'NEST00' '../04_results/CASMA_PORT_20241201_20241231.nest' OUTPUT 20241201.000000 3600 SEC
+    
+ NGRID 'NEST01' -78.619642 -9.292412 0.00 0.150145 0.128805
+    
+ NESTOUT 'NEST01' '../04_results/SAMANCO_PORT_20241201_20241231.nest' OUTPUT 20241201.000000 3600 SEC
+    
+ 
+    
+ BLOCK 'COMPGRID' NOHEADER '../04_results/TRANSITION_20241201_20241231.mat' &
+ LAY-OUT 3 XP YP HSIGN TPS PDIR DIR UBOT TMBOT FORCE DEPTH OUTPUT 20241201.000000 3600 SEC
+    
+ 
+    
+ $ N/A No spectral output
+    
+ $ -------------------------------------------------------------------------------
+    
+ 
+    
+ $ LOCKUP
+    
+ $ -------------------------------------------------------------------------------
+    
+ INITIAL DEFAULT
+    
+ COMPUTE NONSTATIONARY 20241201.000000 3600 SEC 20241231.000000
+ Boundary data type SWNT processed, time:           0.
+ Time of computation ->  20241201.010000      in sec:       3600.
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ ** Severe error     : incorrect code in b.c. file:  **** **** **** ****
+ ** Error            : read error in boundary condition file /Users/daniela/Documents/swan/SWAN_GIS_Tools/central_peru copy/SWAN/03_simulation/../04_results/TRANSITION_20241201_20241231.nest           
+ Boundary data type SWNT processed, time:        3600.
+ **  Heading lines  **
+ -> 20241201.010000                                                                 
+
+----------------------------------------------------------------
+                  COMPUTATIONAL PART OF SWAN
+----------------------------------------------------------------
+
+ Gridresolution       : MXC              45 MYC             68
+                      : MCGRD          3061
+                      : MSC              35 MDC             36
+                      : MTC             720
+                      : NSTATC            1 ITERMX           5
+ Propagation flags    : ITFRE             1 IREFR            1
+ Source term flags    : IBOT              1 ISURF            1
+                      : IWCAP             7 IWIND            5
+                      : ITRIAD            0 IQUAD            2
+                      : IBRAG             0 IQCM             0
+                      : IVEG              0 ITURBV           0
+                      : IMUD              0 IICE             0
+ Spatial step         : DX       0.1005E-01 DY      0.9977E-02
+ Spectral bin         : df/f     0.9930E-01 DDIR    0.1000E+02
+ Physical constants   : GRAV     0.9810E+01 RHO     0.1025E+04
+ Wind input           : WSPEED   0.0000E+00 DIR     0.0000E+00
+                      : ICEWIND  0.00
+ Tail parameters      : E(f)     0.4000E+01 E(k)    0.2500E+01
+                      : A(f)     0.5000E+01 A(k)    0.3000E+01
+ Accuracy parameters  : DREL     0.5000E-02 NPNTS   0.9950E+02
+                      : DHOVAL   0.1000E-01 DTOVAL  0.5000E-02
+                      : GRWMX    0.1000E-01
+ Drying/flooding      : LEVEL    0.0000E+00 DEPMIN  0.5000E-01
+ The Cartesian convention for wind and wave directions is used
+ Scheme for geographic propagation is BSBT  
+ Scheme geogr. space  : PROPSC            1 ICMAX            5
+ Scheme spectral space: CSS      0.5000E+00 CDD     0.5000E+00
+ Current is off
+ Quadruplets          : IQUAD             2
+                      : LAMBDA   0.2500E+00 CNL4    0.3000E+08
+                      : CSH1     0.5500E+01 CSH2    0.8330E+00
+                      : CSH3    -0.1250E+01
+ Maximum Ursell nr for Snl4 :    0.1000E+02
+ Triads is off
+ Bragg scattering is off
+ QC scattering is off
+ Surfbeat (IEM) is off
+ JONSWAP (`73)        : GAMMA    0.3800E-01
+ Vegetation is off
+ Turbulence is off
+ Fluid mud is off
+ Dissipation by sea ice is off
+ W-cap Alves-Banner   : CDS2     0.5000E-04 BR      0.1750E-02
+ Wind drag is Wu
+ Yan/Westhuysen wind input
+ Battjes&Janssen (`78): ALPHA    0.1000E+01 GAMMA   0.7300E+00
+ Set-up is off
+ Diffraction is off
+ Janssen (`89,`90)    : ALPHA    0.1000E-01 KAPPA   0.4100E+00
+ Janssen (`89,`90)    : RHOA     0.1280E+01 RHOW    0.1025E+04
+ 
+ 1st and 2nd gen. wind: CF10     0.1880E+03 CF20    0.5900E+00
+                      : CF30     0.1200E+00 CF40    0.2500E+03
+                      : CF50     0.2300E-02 CF60   -0.2230E+00
+                      : CF70     0.0000E+00 CF80   -0.5600E+00
+                      : RHOAW    0.1249E-02 EDMLPM  0.3600E-02
+                      : CDRAG    0.1230E-02 UMIN    0.1000E+01
+                      : LIM_PM   0.1300E+00
+ 
+ accuracy OK in   2.49 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in   5.84 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in   6.10 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in   6.31 % of wet grid points ( 99.50 % required)
+
+ accuracy OK in   6.53 % of wet grid points ( 99.50 % required)
+
+  ** WARNING : Differences in wave height at the boundary
+ Relative difference between input and computation >=   0.10
+                         Hs[m]      Hs[m]      Hs[-]
+     ix    iy  index   (input) (computed) (relative)
+  --------------------------------------------------
+     5    68    341       0.24       0.22       0.11
+     6    68    409       0.22       0.19       0.13
+     7    68    477       0.19       0.16       0.16
+     8    68    545       0.15       0.12       0.22
+     9    68    613       0.10       0.07       0.31
+    44     1   2926       0.09       0.00       1.00
+ 
+ Time of computation ->  20241201.020000      in sec:       7200.
+ ** No continuation of computation because of error level:  3
+ ** To ignore this error, change [maxerr] with the SET command
